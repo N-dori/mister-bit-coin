@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, HashRouter as Router, Switch } from 'react-router-dom';
+import { AppHeader } from './components/AppHeader';
+import { AppFooter } from './components/AppFooter';
+import { Home } from './pages/Home';
+import { About } from './pages/About';
+import { ContactPage } from './pages/ContactPage';
+import { Charts } from './pages/Charts';
+import { ContactDetailsPage } from './pages/ContactDetailsPage';
+import { ContactEditPage } from './pages/ContactEditPage';
+import './assets/scss/main.scss';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+import React, { Component } from 'react'
+
+export default class App extends Component {
+
+  render() {
+   
+    return (
+      <Router>
+           <section className="main-layout">
+           <AppHeader />
+           
+        <Switch>
+      
+        <Route path="/contact/edit/:id?" component={ContactEditPage} />
+        <Route path="/contact/:id" component={ContactDetailsPage} />
+        <Route path="/contacts" component={ContactPage} />
+        <Route path="/charts" component={Charts}/>
+        <Route path="/about" component={About} />
+        <Route path="/" component={Home} />
+      
+        </Switch>
+
+       
+          <AppFooter/>
+        
+
+    </section>
+      </Router>
+   
+    )
+  }
 }
-
-export default App;

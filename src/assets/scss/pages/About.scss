@@ -1,0 +1,9 @@
+.about{
+    grid-column: 2;
+    flex-direction: column;
+    justify-content: center;
+    nav{
+        display: flex;
+        gap:15px
+    }
+}

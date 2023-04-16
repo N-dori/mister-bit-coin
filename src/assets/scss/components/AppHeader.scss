@@ -1,0 +1,45 @@
+.app-header{
+    grid-column: 1/-1;
+    background-color:var(--clr2);
+    display: flex;
+    justify-content: space-between;
+    padding: 18px;
+    border-bottom: 1px solid #efe;
+    .logo-container{
+        flex-direction: column;
+        gap: 8px;
+        margin-inline-start: 15px;
+        .logo {
+            width: 64px;
+    
+            margin-inline-start: 14px;
+        }
+        span{
+            color: #fff;
+            font-weight: 600;
+        }
+
+    }
+    .main-menu{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 66px;
+        margin-inline-end: 80px;
+        a{
+            font-family: Ciruclar Med;
+            color:#ededed;
+            font-size:1.2rem
+        }
+        .active{
+            font-size:1.3rem;
+            color:#fff;
+            
+        }
+       
+       
+
+    }
+
+
+}

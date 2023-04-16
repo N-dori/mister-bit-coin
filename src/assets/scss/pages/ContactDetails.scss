@@ -1,0 +1,78 @@
+.nex-prev-container{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.details-container {
+    grid-column: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+    .details-info-card {
+   
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 50px;
+        background-color: aliceblue;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.15);
+        h1{
+            font-family: Circular Med;
+            font-size: 2em;
+            margin-block-start: 0;
+            
+        }
+        p{
+            font-family: Circular Med;  
+            font-size: 1.2em;
+     
+        }
+        .details-info-email{
+            color: rgb(20, 129, 165);
+            text-decoration: underline;
+            
+        }
+        .details-info-phone{
+            color :rgb(218, 0, 36);
+        }
+    }
+    .details-info-card p:nth-child(2){
+        margin: 0;
+    }
+
+    .btn-back {
+        font-size: 2.5rem;
+        cursor: pointer;
+        padding: .1em .6em;
+        font-weight: bold;
+        border: none;
+        --c: #229091;
+        /* the color*/
+
+        box-shadow: 0 0 0 .1em inset var(--c);
+        --_g: linear-gradient(var(--c) 0 0) no-repeat;
+        background:
+            var(--_g) calc(var(--_p, 0%) - 100%) 0%,
+            var(--_g) calc(200% - var(--_p, 0%)) 0%,
+            var(--_g) calc(var(--_p, 0%) - 100%) 100%,
+            var(--_g) calc(200% - var(--_p, 0%)) 100%;
+        background-size: 50.5% calc(var(--_p, 0%)/2 + .5%);
+        outline-offset: .1em;
+        transition: background-size .4s, background-position 0s .4s;
+    }
+
+    .btn-back:hover {
+        --_p: 100%;
+        transition: background-position .4s, background-size 0s;
+    }
+
+    .btn-back:active {
+        box-shadow: 0 0 9e9q inset #0009;
+        background-color: var(--c);
+        color: #fff;
+    }
+
+}
