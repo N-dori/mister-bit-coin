@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-export  function ContactsPreview({contact ,  onSelectContactId}) {
+export  function ContactsPreview({contact, onRemoveContact }) {
   return (
-    <article className='contact-card' onClick={()=>onSelectContactId(contact._id)}>
+    <article className='contact-card' >
         <div className='contact-info'>
           <Link to={`/contact/${contact._id}`}>
         <h2>{ contact.name }</h2>
@@ -11,6 +11,7 @@ export  function ContactsPreview({contact ,  onSelectContactId}) {
           </Link>
         </div>
         <Link to={`/contact/edit/${contact._id}`}>Edit</Link>
+        <button onClick={()=>onRemoveContact(contact._id)}  >X</button>
         
 
     </article>
