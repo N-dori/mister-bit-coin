@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Mister-Bit-Coin/static/css/main.aac50529.css",
+    "main.js": "/Mister-Bit-Coin/static/js/main.ca7fe572.js",
+    "static/js/787.fa560ebd.chunk.js": "/Mister-Bit-Coin/static/js/787.fa560ebd.chunk.js",
+    "index.html": "/Mister-Bit-Coin/index.html",
+    "main.aac50529.css.map": "/Mister-Bit-Coin/static/css/main.aac50529.css.map",
+    "main.ca7fe572.js.map": "/Mister-Bit-Coin/static/js/main.ca7fe572.js.map",
+    "787.fa560ebd.chunk.js.map": "/Mister-Bit-Coin/static/js/787.fa560ebd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.aac50529.css",
+    "static/js/main.ca7fe572.js"
+  ]
+}
