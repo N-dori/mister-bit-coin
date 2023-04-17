@@ -40,13 +40,9 @@ onChangeFilter = (filterBy) => {
 
 }
 
-
-onRemoveContact= (contactId) => {
-    contactService.deleteContact(contactId)
-    const idx= this.state.contacts.findIndex(contact=>contact._id === contactId )
-    const contacts = [...this.state.contacts]
-    contacts.splice(idx,1)
-    this.setState({contacts})
+onSelectContactId = (contactId) => {
+    console.log('contactId',contactId)
+    this.setState({SelectContactId:contactId})
 }
   render() {
     const {contacts,filterBy,SelectContactId} = this.state
@@ -59,7 +55,7 @@ onRemoveContact= (contactId) => {
              onChangeFilter={this.onChangeFilter} 
              filterBy={filterBy}/>
             <ContactList 
-            onRemoveContact={this.onRemoveContact}
+            onSelectContactId={this.onSelectContactId}
               contacts={contacts}/>
               <Link to="/contact/edit">
               <AddButton/>
