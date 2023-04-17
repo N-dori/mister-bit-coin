@@ -46,11 +46,11 @@ onSelectContactId = (contactId) => {
 }
   render() {
     const {contacts,filterBy,SelectContactId} = this.state
+    if (!contacts) return  <div>Loading.... </div>
     return (
         <section className='contact-page-container'>
-            {contacts?
-            <>
             <h2>Contact-List</h2>
+            <>
             <ContactFilter
              onChangeFilter={this.onChangeFilter} 
              filterBy={filterBy}/>
@@ -60,9 +60,7 @@ onSelectContactId = (contactId) => {
               <Link to="/contact/edit">
               <AddButton/>
               </Link>
-            </>:
-            <div>Loading.... </div>
-         }
+            </>
             
 
         </section>

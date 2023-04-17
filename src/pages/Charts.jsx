@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import {ChartCTN} from '../components/ChartCTN'
-import {Chart} from '../components/Chart'
+import { Link } from 'react-router-dom/cjs/react-router-dom'
+
 
 export  class Charts extends Component {
   componentDidMount(){
@@ -10,21 +10,38 @@ export  class Charts extends Component {
     return (
       <>
           <section className='charts-container' >
-        <header className='charts-header'><h1>Charts</h1></header>
-     </section>
-     <section className='my-chart' style={{gridColumn: 2}}>
-          <h1> BTC Average price</h1>
-        <Chart />
+        <header className='charts-header'>
+          <h1 className='charts-header-title'>Blockchain Charts</h1>
+          <p className='charts-header-sub-title'>The most trusted source for data on the bitcoin blockchain</p>
+        </header>
+ 
+     <section  className='chart-links-container'>
 
+      <section className='chart-links-title'>
+        <p className='chart-links-title'>Popular Stats</p>
         </section>
-        <section className='confirmed-tens-chart-conatiner'>
-          <h2>Confirmed Transactions Per Day</h2>
-          <h4>The total number of confirmed transactions per day.</h4>
-          <ChartCTN/>
-          <h2>Explanation</h2>
-          <p>The number of daily confirmed transactions highlights the value of the
-             Bitcoin network as a way to securely transfer funds without a third part.</p>
+        <section className='chart-link-inner-container'>
+        <Link className="chart-link" to={`/charts/market-price`}>
+           <article className='chart-link-container'>
+        <h2  className='chart-link-price-title'>Market Price (USD)</h2>
+        <span className='btc-to-dollar'>$29,464</span>
+        <span className='btc-desc'>(USD)</span>
+        <p className='btc-desc-p'>The averge USD market price across major bitcoin exchanges</p>
+      </article>
+
+        </Link>
+        <Link className="chart-link" to={`/charts/n-transactions`}>
+      <article className='chart-link-container'>
+        <h2 className='chart-link-price-title' >Confirmed Transactions Per Day</h2>
+        <span className='btc-to-dollar'>291,659</span>
+        <span className='btc-desc'>Transactions</span>
+        <p className='btc-desc-p'>The total number of confirmed transactions per day.</p>
+      </article>
+      </Link>
         </section>
+     </section>
+    </section>
+  
       </>
  
     )

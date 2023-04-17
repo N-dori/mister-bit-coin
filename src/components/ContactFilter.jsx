@@ -27,14 +27,15 @@ export  class ContactFilter extends Component {
     <section className='form-container'>
 
     <form className='filter-form'>
-        <label htmlFor='name'></label>
+        <label htmlFor='name'>
         <input  value={name} onChange={this.handelChange} type='text' name='name' id='name' placeholder='name?'/>
-
-        <label htmlFor='email'></label>
+        </label>
+        <label htmlFor='email'>
         <input value= {email} onChange={this.handelChange} type='text' name='email' id='email' placeholder='email?'/>
-
-        <label htmlFor='phone'></label>
+</label>
+        <label htmlFor='phone'>
         <input value={phone} onChange={this.handelChange} type='text' name='phone' id='phone' placeholder='phone?' />
+        </label>
     </form>
     </section>
     )

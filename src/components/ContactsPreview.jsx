@@ -3,14 +3,21 @@ import { Link } from 'react-router-dom'
 export  function ContactsPreview({contact ,  onSelectContactId}) {
   return (
     <article className='contact-card' onClick={()=>onSelectContactId(contact._id)}>
-        <div className='contact-info'>
-          <Link to={`/contact/${contact._id}`}>
-        <h2>{ contact.name }</h2>
+    
+        <h2 className='contact-card-user-name flex'>{ contact.name }</h2>
+        <div className='contact-card-user-img'>
         <img src={`https://robohash.org/${contact.name}`}/>
-        <p>Click me if you want to know more about me</p>
-          </Link>
         </div>
-        <Link to={`/contact/edit/${contact._id}`}>Edit</Link>
+        <span className='contact-card-user-email flex' >{contact.email}</span>
+        <span className='contact-card-user-phone flex' >{contact.phone}</span>
+      <div className='actions flex'>
+
+          <Link className="details-link " to={`/contact/${contact._id}`}>
+        Details
+          </Link>
+       
+        <Link className="details-Edit-link" to={`/contact/edit/${contact._id}`}>Edit</Link>
+      </div>
         
 
     </article>

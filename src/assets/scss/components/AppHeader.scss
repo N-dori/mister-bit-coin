@@ -1,5 +1,6 @@
 .app-header{
     grid-column: 1/-1;
+    
     background-color:var(--clr2);
     display: flex;
     justify-content: space-between;
@@ -25,7 +26,7 @@
         justify-content: flex-end;
         align-items: center;
         gap: 66px;
-        margin-inline-end: 80px;
+        margin-inline-end: 14px;
         a{
             font-family: Ciruclar Med;
             color:#ededed;

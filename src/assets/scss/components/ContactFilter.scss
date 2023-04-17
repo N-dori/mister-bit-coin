@@ -1,14 +1,14 @@
 .form-container{
-    display: flex;
-    justify-content: center;
+    grid-column: 2;
+  
     background-color: var(--clr2);
     padding: 30px;
     margin-bottom: 30px;
     border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     .filter-form{
         display: flex;
-   
-       gap:65px;
+   justify-content: space-around;
   
     }
    input{
