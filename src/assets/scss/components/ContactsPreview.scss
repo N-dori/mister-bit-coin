@@ -2,7 +2,7 @@
     background: #03a9f414;
     box-shadow: 0 0 11px #0000002b;
     display: grid;
-    grid-template-columns: 50px 1fr 1fr 1fr 1fr;
+    grid-template-columns: 50px 1fr 1fr 1fr 1fr 1fr;
     column-gap: 5px;
     border-radius: 5px;
 
@@ -48,12 +48,17 @@
         align-items: center;
 
     }
-
     .contact-card-user-phone {
         font-family: Circular-Light;
         grid-column: 4;
         justify-content: center;
         align-items: center;
+    }
+    .transfer-btn{
+        grid-column: 6;
+        border:none;
+        background-color: transparent;
+        cursor: pointer;
     }
 }
 .contact-card:hover{

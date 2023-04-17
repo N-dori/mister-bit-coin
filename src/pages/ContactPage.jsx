@@ -4,11 +4,12 @@ import { ContactList } from '../components/ContactList'
 import { ContactFilter } from '../components/ContactFilter'
 import { AddButton } from '../components/AddButton'
 import {Link} from 'react-router-dom'
+
 export  class ContactPage extends Component { 
 
 state={
     contacts:null,
-    SelectContactId:null,
+    SelectedContactId:null,
        filterBy:{
         email:'',
         name:'',
@@ -44,25 +45,25 @@ onSelectContactId = (contactId) => {
     console.log('contactId',contactId)
     this.setState({SelectContactId:contactId})
 }
-  render() {
-    const {contacts,filterBy,SelectContactId} = this.state
+
+
+render() {
+      const style= {display:""}
+    const {contacts,filterBy,SelectedContactId} = this.state
     if (!contacts) return  <div>Loading.... </div>
     return (
         <section className='contact-page-container'>
             <h2>Contact-List</h2>
-            <>
+
             <ContactFilter
              onChangeFilter={this.onChangeFilter} 
              filterBy={filterBy}/>
             <ContactList 
-            onSelectContactId={this.onSelectContactId}
+  
               contacts={contacts}/>
               <Link to="/contact/edit">
               <AddButton/>
               </Link>
-            </>
-            
-
         </section>
     )
   }

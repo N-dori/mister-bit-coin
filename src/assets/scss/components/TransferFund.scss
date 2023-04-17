@@ -1,0 +1,15 @@
+.transfer-page-contianer{
+grid-column: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+  .transfer-contact-contianer{
+
+      border-radius: 8px;
+      background-color: rgb(255, 255, 255);
+      box-shadow: rgba(0, 0, 0, 0.21) 0px 2px 8px 0px;
+      padding: 30px;
+      z-index: 5;
+  }
+}

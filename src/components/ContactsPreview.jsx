@@ -1,8 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-export  function ContactsPreview({contact ,  onSelectContactId}) {
+
+export  function ContactsPreview({contact , getContactId}) {
   return (
-    <article className='contact-card' onClick={()=>onSelectContactId(contact._id)}>
+    <>
+    
+    <article className='contact-card' >
     
         <h2 className='contact-card-user-name flex'>{ contact.name }</h2>
         <div className='contact-card-user-img'>
@@ -15,11 +18,13 @@ export  function ContactsPreview({contact ,  onSelectContactId}) {
           <Link className="details-link " to={`/contact/${contact._id}`}>
         Details
           </Link>
-       
         <Link className="details-Edit-link" to={`/contact/edit/${contact._id}`}>Edit</Link>
-      </div>
-        
 
+      </div>
+        <Link  to={`/transfer-funds/${contact._id}`} >Transfer Funds</Link>
     </article>
+
+    </>
+    
   )
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { userService } from '../services/user.service'
 import { bitCoinService } from '../services/bitCoinService'
+import { useHistory } from "react-router-dom";
 
 
 
@@ -16,13 +17,20 @@ export  class Home extends Component {
     componentDidMount(){
         this.loadUser()
         this.loadBitCoinInfo()
+       console.log('this.props',this.props.match.path)
   
     
     }
     loadUser = () =>{
-        const user =userService.getUser()
+     
+      const user =userService.getUser()
+      if(!user) this.redirect()
+
         this.setState({user})
     } 
+   redirect= () => {
+    this.props.history.push('/signup-page')
+   } 
     loadBitCoinInfo = async () => {
         const currBitCoinRate = await bitCoinService.getRate()
         this.setState({currBitCoinRate})   

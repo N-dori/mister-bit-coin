@@ -9,10 +9,13 @@ import { ContactDetailsPage } from './pages/ContactDetailsPage';
 import { ContactEditPage } from './pages/ContactEditPage';
 import {MarketPriceChart} from './pages/MarketPriceChart';
 import { ConfirmedTransactions } from './pages/ConfirmedTransactions ';
+import { SignupPage } from './pages/SignupPage';
+import { TransferFund } from './pages/TransferFund';
 import './assets/scss/main.scss';
 
 
 import React, { Component } from 'react'
+import { userService } from './services/user.service';
 
 export default class App extends Component {
 
@@ -21,7 +24,7 @@ export default class App extends Component {
     return (
       <Router>
            <section className="main-layout">
-           <AppHeader />
+           <AppHeader  />
            
         <Switch>
       
@@ -32,6 +35,8 @@ export default class App extends Component {
         <Route path="/charts/n-transactions" component={ConfirmedTransactions}/>
         <Route path="/charts" component={Charts}/>
         <Route path="/about" component={About} />
+        <Route path="/transfer-funds/:id" component={TransferFund} />
+        <Route path="/signup-page" component={SignupPage} />
         <Route path="/" component={Home} />
       
         </Switch>
