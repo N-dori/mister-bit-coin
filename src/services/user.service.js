@@ -9,15 +9,16 @@ export const userService = {
 const USER_KEY = 'userDB'
 const STORAGE_KEY_LOGGEDIN_USER = 'loggedinUser'
 
-const user = {
-    name: "Ochoa Hyde",
-    coins: 100,
-    moves: []
-}
+const user = null
 
 
 function getUser() {
-    return storageService.load(STORAGE_KEY_LOGGEDIN_USER)
+    return new Promise((resolve) => {
+            const loggedinUser =storageService.load(STORAGE_KEY_LOGGEDIN_USER)
+           resolve(loggedinUser) 
+        })
+
+
 }
 
 function signup(credentials) {
@@ -39,12 +40,18 @@ function getEmpyMove () {
     coins: 0,
    }
 }
-function handelFundsTransfer(move){
-    const user = getUser()
+async function handelFundsTransfer(move){
+
+    const user = await getUser()
     user.coins -= move.coins
     user.moves.push(move)
     storageService.store(STORAGE_KEY_LOGGEDIN_USER, user)
+    console.log('user',user);
     
+    return new Promise((resolve) => {
+    
+       resolve(user) 
+    })
 
 }
 //Add the functions:

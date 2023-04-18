@@ -2,38 +2,38 @@ import React, { Component } from 'react'
 import { contactService } from '../services/contact.service'
 import { userService } from '../services/user.service'
 import { MovesList } from '../components/MovesList'
+import { loadloggedinUser, sepndBalance } from '../store/actions/user.actions'
+import { handelFundsTransfer } from '../store/actions/contact.actions'
+import { connect } from 'react-redux'
 
-export  class TransferFund extends Component {
+export  class _TransferFund extends Component {
         state = {
             contact:null,
             move:userService.getEmpyMove(),
-            user:userService.getUser(),
             pastTransactions:null
 
         }
 
-        async   componentDidMount () {
-        await this.loadContactAndPastTransactions()
-
-        
+          componentDidMount () {
+        this.loadContactAndPastTransactions()
       }
+
     
   
       loadContactAndPastTransactions = async () =>{
-         const {user} = this.state
         if(!this.props.match.params.id)return 
         const contact = await contactService.getContactById(this.props.match.params.id)
-
+        
         this.setState({contact})
-       const userTransactions=user.moves
+        const user = this.props.loggdingUser
+         const userTransactions=user.moves
       const pastTransactions =  userTransactions.filter(move => move.toId === contact._id)
-      console.log('pastTransactions',pastTransactions);
       this.setState({pastTransactions})
       }
 
 
-      updateContact = async (ev) =>{
-ev.preventDefault()
+      saveContact = async (ev) =>{
+          ev.preventDefault()
         const { contact ,move } = this.state
        let currMove={
           toId:contact._id,
@@ -41,10 +41,11 @@ ev.preventDefault()
           at:Date.now(),
           coins:move.coins
         }
-        await contactService.saveContact({...contact})
-        userService.handelFundsTransfer(currMove)
- 
+       await this.props.handelFundsTransfer(currMove,contact)
+        await this.props.sepndBalance(currMove)
+        this.loadContactAndPastTransactions()
       }
+
       handleChange = ({ target }) => {
         const field = target.name
         let value = target.value
@@ -82,7 +83,7 @@ ev.preventDefault()
         </div>
             </div>
 
-          <form onSubmit={this.updateContact} className='transfer-form flex'>
+          <form onSubmit={this.saveContact} className='transfer-form flex'>
             <h2>Transfer Coins to <span className='transfer-contact-name'>{contact.name}</span></h2>
             <label htmlFor='coins'>Amount to transfer
               <input onChange={this.handleChange} value={contact.coins} type='number' name="coins" id='coins' />
@@ -100,3 +101,17 @@ ev.preventDefault()
     )
   }
 }
+const mapStateToProps = (state) =>({
+  loggdingUser: state.userModule.loggdingUser
+
+})
+const mapDispatchToProps = {
+  loadloggedinUser,
+  handelFundsTransfer,
+  sepndBalance,
+
+
+
+}
+
+export const TransferFund = connect(mapStateToProps,mapDispatchToProps)(_TransferFund)

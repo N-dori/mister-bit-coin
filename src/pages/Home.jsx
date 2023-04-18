@@ -1,48 +1,55 @@
 import React, { Component } from 'react'
 import { userService } from '../services/user.service'
 import { bitCoinService } from '../services/bitCoinService'
-import { useHistory } from "react-router-dom";
+import { MovesList } from '../components/MovesList'
+import { connect } from 'react-redux'
+import { loadloggedinUser } from '../store/actions/user.actions'
 
 
 
-export  class Home extends Component {
+export  class _Home extends Component {
 
     state={
-        user:null,
         currBitCoinRate:0,
         BitCoinMarketPrice:null
-        
-
     }
-    componentDidMount(){
-        this.loadUser()
+
+    async componentDidMount(){
+      console.log("this.props",this.props);
+    await this.props.loadloggedinUser()
+
+     if(!this.props.loggdingUser)this.redirect()
         this.loadBitCoinInfo()
-       console.log('this.props',this.props.match.path)
-  
-    
-    }
-    loadUser = () =>{
-     
-      const user =userService.getUser()
-      if(!user) this.redirect()
 
-        this.setState({user})
-    } 
-   redirect= () => {
-    this.props.history.push('/signup-page')
-   } 
-    loadBitCoinInfo = async () => {
-        const currBitCoinRate = await bitCoinService.getRate()
-        this.setState({currBitCoinRate})   
     }
+
  
+
+    
+    redirect= () => {
+    this.props.history.push('/signup-page')
+  } 
+  
+  loadBitCoinInfo = async () => {
+    const currBitCoinRate = await bitCoinService.getRate()
+    this.setState({currBitCoinRate})   
+  }
+  
   render() {
-    const {user, currBitCoinRate}= this.state
+    const { currBitCoinRate}= this.state
+    
+    if(!this.props.loggdingUser)return(<div>Loaging...</div>)
+
+    const { moves ,name ,coins} =this.props?.loggdingUser
+
+    const nthMoves=moves.slice(0,3)
+    console.log('moves',moves);
+    console.log('nthMoves',nthMoves);
     const img= "https://cryptologos.cc/logos/wrapped-bitcoin-wbtc-logo.png"
     return (
 
         <section className='greating-container flex'>
-          <h1 className='greating'>Hello <span className='user-name'>{user?.name}</span></h1>
+          <h1 className='greating'>Hello <span className='user-name'>{name}</span></h1>
           <div className='slogan'>
              <h1 className='greating-title'>Be early to the future of finance</h1>
              <h2 className='greating-sub-title'>Buy Bitcoin, Ethereum, and other leading cryptocurrencies on a platform trusted by millions.</h2>
@@ -51,8 +58,29 @@ export  class Home extends Component {
         Exchange Rate: {currBitCoinRate} <span>(USD)</span>
       </h3>
           </div>
-        </section>
-    
+          <section className='digtal-wallet flex'>
+          <header className='digtal-wallet-img-container flex'>
+            <img src="https://freeiconshop.com/wp-content/uploads/edd/wallet-outline.png"/>
+          <span>BTC  {coins}</span>
+            <span>Digital Wallt</span>
+          </header>
+       {
+        (moves.length === 0) ? <span className='no-transactions' > 'No Transactions made yet...' </span>:
+       <MovesList pastTransactions={nthMoves} contact={this.props?.loggdingUser}/>
+       } 
+          </section>
+
+     </section>
     )
   }
 }
+const mapStateToProps = (state) =>({
+  loggdingUser: state.userModule.loggdingUser
+})
+const mapDispatchToProps = {
+  loadloggedinUser
+
+
+}
+
+export const Home = connect(mapStateToProps,mapDispatchToProps)(_Home)

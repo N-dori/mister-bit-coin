@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+export  function ContactsPreview({contact ,  onRemoveContact}) {
 
-export  function ContactsPreview({contact , getContactId}) {
+
   return (
     <>
     
@@ -15,10 +16,9 @@ export  function ContactsPreview({contact , getContactId}) {
         <span className='contact-card-user-phone flex' >{contact.phone}</span>
       <div className='actions flex'>
 
-          <Link className="details-link " to={`/contact/${contact._id}`}>
-        Details
-          </Link>
-        <Link className="details-Edit-link" to={`/contact/edit/${contact._id}`}>Edit</Link>
+       <Link className="details-link " to={`/contact/${contact._id}`}>Details </Link>
+      <Link className="details-Edit-link" to={`/contact/edit/${contact._id}`}>Edit</Link>
+      <button className="details-Edit-remove" onClick={ ()=>onRemoveContact(contact._id)}>Remove</button>
 
       </div>
       <div className="details-link-transfer">
@@ -29,4 +29,4 @@ export  function ContactsPreview({contact , getContactId}) {
     </>
     
   )
-}
+  }

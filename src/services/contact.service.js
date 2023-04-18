@@ -148,7 +148,7 @@ function sort(arr) {
     })
 }
 
-function getContacts(filterBy = null) {
+function getContacts(filterBy = {name:'',phone:'',email:''}) {
     contacts.forEach(contact => {
         _setNextPrevContactId(contact)
     });

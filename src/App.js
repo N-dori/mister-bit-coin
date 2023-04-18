@@ -3,7 +3,7 @@ import { AppHeader } from './components/AppHeader';
 import { AppFooter } from './components/AppFooter';
 import { Home } from './pages/Home';
 import { About } from './pages/About';
-import { ContactPage } from './pages/ContactPage';
+import { ContactIndex } from './pages/ContactIndex';
 import { Charts } from './pages/Charts';
 import { ContactDetailsPage } from './pages/ContactDetailsPage';
 import { ContactEditPage } from './pages/ContactEditPage';
@@ -31,7 +31,7 @@ export default class App extends Component {
         <Route path="/contact/edit/:id?" component={ContactEditPage} />
         <Route path="/contact/:id" component={ContactDetailsPage} />
         <Route path="/transfer-funds/:id" component={TransferFund} />
-        <Route path="/contacts" component={ContactPage} />
+        <Route path="/contacts" component={ContactIndex} />
         <Route path="/charts/market-price" component={MarketPriceChart}/>
         <Route path="/charts/n-transactions" component={ConfirmedTransactions}/>
         <Route path="/charts" component={Charts}/>

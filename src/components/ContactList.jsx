@@ -1,7 +1,7 @@
 import React from 'react'
 import {ContactsPreview} from './ContactsPreview'
 
-export  function ContactList({contacts ,getContactId }) {
+export  function ContactList({contacts ,getContactId, onRemoveContact }) {
 
 function getContactId (id){
   return id
@@ -11,7 +11,7 @@ function getContactId (id){
      
    
             {contacts.map( contact => 
-                <ContactsPreview key={contact._id} contact={contact}  getContactId={getContactId}/>
+                <ContactsPreview key={contact._id} contact={contact}  getContactId={getContactId}  onRemoveContact={ onRemoveContact}/>
                 )}
   
   

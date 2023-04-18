@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { contactService } from '../services/contact.service'
-
-export  class ContactEditPage extends Component {
+import { connect } from 'react-redux'
+import { saveContact } from '../store/actions/contact.actions'
+export  class _ContactEditPage extends Component {
 
     state = {
         contact: contactService.getEmptyContact()
@@ -34,7 +35,9 @@ export  class ContactEditPage extends Component {
     save = async(ev)=>{
         ev.preventDefault()
         try{
-          await  contactService.saveContact(this.state.contact)
+            const {contact} = this.state
+            console.log('contact in edit', {...contact});
+          await  this.props.saveContact({...contact})
             this.props.history.push('/contacts')
 
         }catch(err){
@@ -64,3 +67,14 @@ export  class ContactEditPage extends Component {
     )
   }
 }
+const mapStateToProps = (state) =>({
+    contacts: state.contactModule.contacts,
+    filterBy: state.contactModule.filterBy,
+})
+const mapDispatchToProps = {
+    saveContact
+    
+
+}
+
+export const ContactEditPage = connect(mapStateToProps,mapDispatchToProps)(_ContactEditPage)

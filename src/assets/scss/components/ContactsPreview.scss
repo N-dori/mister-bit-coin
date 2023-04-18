@@ -35,13 +35,18 @@
         justify-content: center;
         align-items: center;
     }
-
+.actions > * {
+    color: var(--clr7);
+    font-family: Circular-Light;
+}
     .actions {
-        .details-link{
-            font-family: Circular-Light;
-        }
-        .details-Edit-link{
-            font-family: Circular-Light;
+      
+        .details-Edit-remove{
+            border: none;
+            background-color: transparent;
+            text-decoration: underline;
+            cursor: pointer;
+            font-size:1rem
         }
         grid-column: 5;
         justify-content: space-around;

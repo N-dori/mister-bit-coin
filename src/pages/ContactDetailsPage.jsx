@@ -14,7 +14,7 @@ export  class ContactDetailsPage extends Component {
         this.loadContact()
     }
 
-    componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate(prevProps) {
       if (prevProps.match.params.id !== this.props.match.params.id) {
           this.loadContact()
       }
