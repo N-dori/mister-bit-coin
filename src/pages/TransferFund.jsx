@@ -81,7 +81,7 @@ ev.preventDefault()
              </label>
             <button>Transfer</button>
           </form>
-          
+
       <section className='moves-to-curr-contact'>
         <h2>All transactions from you to {contact.name}</h2>
         <ol>
