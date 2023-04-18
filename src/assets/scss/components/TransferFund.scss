@@ -9,11 +9,35 @@
     background-size: cover;
      width:100%;
   .transfer-contact-contianer{
-
+    display: flex;
+    gap:40px;
       border-radius: 8px;
       background-color: rgb(255, 255, 255);
       box-shadow: rgba(0, 0, 0, 0.21) 0px 2px 8px 0px;
       padding: 30px;
       z-index: 5;
   }
+ .transfer-form{
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+ }
+ .moves-to-curr-contact{
+        
+ }
+ .transfer-contact-info{
+
+     .transfer-contact-img{
+        border-radius: 999px;
+        max-width: 120px;
+     }
+     .transfer-contact-details{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        p{
+            margin: 0;
+        }
+     }
+ }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { contactService } from '../services/contact.service'
 import { userService } from '../services/user.service'
+import { MovesList } from '../components/MovesList'
 
 export  class TransferFund extends Component {
         state = {
@@ -69,28 +70,28 @@ ev.preventDefault()
         <section className='transfer-page-contianer'>
 
           <div className='transfer-contact-contianer'>
-         <img src={`https://robohash.org/${contact.name}`}/>
+            <div className='transfer-contact-info flex'>
+         <img className='transfer-contact-img' src={`https://robohash.org/${contact.name}`}/>
+        <div className='transfer-contact-details flex'>
           <p>Email <span className='details-info-email'>{contact.email}</span></p>
           <p>Phone numer <span className='details-info-phone'>{contact.phone}</span></p>
-          </div>
+        </div>
+            </div>
 
-          <form onSubmit={this.updateContact} className='transfer-form'>
-            <p>Transfer Coins to {contact.name}</p>
+          <form onSubmit={this.updateContact} className='transfer-form flex'>
+            <h2>Transfer Coins to {contact.name}</h2>
             <label htmlFor='coins'>Amount
               <input onChange={this.handleChange} value={contact.coins} type='number' name="coins" id='coins' />
              </label>
             <button>Transfer</button>
           </form>
 
-      <section className='moves-to-curr-contact'>
-        <h2>All transactions from you to {contact.name}</h2>
-        <ol>
-          {pastTransactions&& pastTransactions.map(transaction => 
-            <li  key={transaction._id}><span>transaction date {(transaction.at)}</span>{" "}<span>Amount {(transaction.coins)}</span></li>
-                     )}
-        </ol>
-      </section>
+      <MovesList contact={contact} />
+    
+          </div>
         </section>
+
+
             </>
     )
   }
