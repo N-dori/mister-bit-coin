@@ -2,6 +2,7 @@
 .transfer-page-contianer{
     grid-column: 1/-1;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 80vh;
@@ -20,24 +21,82 @@
  .transfer-form{
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
- }
- .moves-to-curr-contact{
-        
- }
- .transfer-contact-info{
+    justify-content: space-evenly;
+    input{
+        width: 100%;
+  
+        min-height: 35px;
+        border: 2px solid lightblue;
+        border-radius: 7px;
+        text-indent: 20px;
+        font-size: large;
+        box-shadow: 0 0 11px rgba(0, 0, 0, 0.168627451);
 
-     .transfer-contact-img{
-        border-radius: 999px;
-        max-width: 120px;
-     }
+    }
+    .transfer-contact-name{
+        color: var(--clr1);
+    }
+    h2{
+        color: var(--clr3);
+        font-family: Circular-Light;
+    }
+    .transfer-btn{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 76%;
+        min-width: 140px;
+        height: 48px;
+        padding: 10px 15px;
+        color: rgba(255, 255, 255, 0.9);
+        text-align: center;
+        transition: all 0.2s ease-in-out 0s;
+        white-space: nowrap;
+        line-height: 1;
+        background-color: var(--clr7);
+        font-size: 1rem;
+        cursor: pointer;
+        margin-block: 2em;
+        font-family: Circular-Med;
+    }
+ }
+
+ .transfer-contact-info{
+    flex-direction: column;
+    .transfer-contact-img-container{
+        justify-content: center;
+        align-items: center;
+        .transfer-contact-img{
+           border-radius: 999px;
+           max-width: 120px;
+        }
+    }
      .transfer-contact-details{
         flex-direction: column;
         align-items: center;
         justify-content: center;
+        margin-top: 20px;
         p{
+            font-family: Circular-Light;
+            font-size:14px;
+            color: var(--clr3);
             margin: 0;
         }
      }
  }
+}
+.moves-to-curr-contact{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   
+    h2{
+        font-family: Circular-Light;
+        color:var(--clr4)
+    }
+    .moves-transaction{
+        font-family: Circular-Light;
+        color:var(--clr4)
+    }
 }

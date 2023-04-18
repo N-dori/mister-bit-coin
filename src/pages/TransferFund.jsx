@@ -62,16 +62,20 @@ ev.preventDefault()
         this.setState(({ move }) => ({ move: { ...move, [field]: value } }))
     }
   render() {
-    const { contact,pastTransactions } = this.state
-    console.log('contact',contact);
+    const { contact, pastTransactions } = this.state
+ console.log('pastTransactions in t',pastTransactions);
     if(!contact)return (<div>Loaing...</div>)
     return (
       <>
         <section className='transfer-page-contianer'>
 
           <div className='transfer-contact-contianer'>
+
             <div className='transfer-contact-info flex'>
+              <div className='transfer-contact-img-container flex'>
          <img className='transfer-contact-img' src={`https://robohash.org/${contact.name}`}/>
+
+              </div>
         <div className='transfer-contact-details flex'>
           <p>Email <span className='details-info-email'>{contact.email}</span></p>
           <p>Phone numer <span className='details-info-phone'>{contact.phone}</span></p>
@@ -79,16 +83,16 @@ ev.preventDefault()
             </div>
 
           <form onSubmit={this.updateContact} className='transfer-form flex'>
-            <h2>Transfer Coins to {contact.name}</h2>
-            <label htmlFor='coins'>Amount
+            <h2>Transfer Coins to <span className='transfer-contact-name'>{contact.name}</span></h2>
+            <label htmlFor='coins'>Amount to transfer
               <input onChange={this.handleChange} value={contact.coins} type='number' name="coins" id='coins' />
              </label>
-            <button>Transfer</button>
+            <button className="transfer-btn">Transfer</button>
           </form>
 
-      <MovesList contact={contact} />
     
           </div>
+      <MovesList contact={contact} pastTransactions={pastTransactions}/>
         </section>
 
 
