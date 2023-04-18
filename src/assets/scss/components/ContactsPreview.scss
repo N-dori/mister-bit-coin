@@ -60,6 +60,12 @@
         background-color: transparent;
         cursor: pointer;
     }
+    .details-link-transfer{
+        display: flex;
+        justify-content: start;
+        align-items: center;
+
+    }
 }
 .contact-card:hover{
     scale: 1.005;

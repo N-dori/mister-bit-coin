@@ -21,7 +21,9 @@ export  function ContactsPreview({contact , getContactId}) {
         <Link className="details-Edit-link" to={`/contact/edit/${contact._id}`}>Edit</Link>
 
       </div>
+      <div className="details-link-transfer">
         <Link  to={`/transfer-funds/${contact._id}`} >Transfer Funds</Link>
+      </div>
     </article>
 
     </>

@@ -1,9 +1,13 @@
+
 .transfer-page-contianer{
-grid-column: 2;
+    grid-column: 1/-1;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 80vh;
+    background-image: url("https://static.vecteezy.com/system/resources/previews/003/497/128/non_2x/currency-money-transfer-network-and-global-business-symbol-background-illustration-vector.jpg");
+    background-size: cover;
+     width:100%;
   .transfer-contact-contianer{
 
       border-radius: 8px;

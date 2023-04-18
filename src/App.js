@@ -30,12 +30,12 @@ export default class App extends Component {
       
         <Route path="/contact/edit/:id?" component={ContactEditPage} />
         <Route path="/contact/:id" component={ContactDetailsPage} />
+        <Route path="/transfer-funds/:id" component={TransferFund} />
         <Route path="/contacts" component={ContactPage} />
         <Route path="/charts/market-price" component={MarketPriceChart}/>
         <Route path="/charts/n-transactions" component={ConfirmedTransactions}/>
         <Route path="/charts" component={Charts}/>
         <Route path="/about" component={About} />
-        <Route path="/transfer-funds/:id" component={TransferFund} />
         <Route path="/signup-page" component={SignupPage} />
         <Route path="/" component={Home} />
       

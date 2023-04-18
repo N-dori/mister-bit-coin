@@ -65,14 +65,15 @@ ev.preventDefault()
     console.log('contact',contact);
     if(!contact)return (<div>Loaing...</div>)
     return (
+      <>
         <section className='transfer-page-contianer'>
+
           <div className='transfer-contact-contianer'>
          <img src={`https://robohash.org/${contact.name}`}/>
-         
           <p>Email <span className='details-info-email'>{contact.email}</span></p>
           <p>Phone numer <span className='details-info-phone'>{contact.phone}</span></p>
-
           </div>
+
           <form onSubmit={this.updateContact} className='transfer-form'>
             <p>Transfer Coins to {contact.name}</p>
             <label htmlFor='coins'>Amount
@@ -80,16 +81,17 @@ ev.preventDefault()
              </label>
             <button>Transfer</button>
           </form>
+          
       <section className='moves-to-curr-contact'>
         <h2>All transactions from you to {contact.name}</h2>
         <ol>
           {pastTransactions&& pastTransactions.map(transaction => 
-            <li key={transaction._id}><span>transaction date {(transaction.at)}</span>{" "}<span>Amount {(transaction.coins)}</span></li>
-         
-            )}
+            <li  key={transaction._id}><span>transaction date {(transaction.at)}</span>{" "}<span>Amount {(transaction.coins)}</span></li>
+                     )}
         </ol>
       </section>
         </section>
+            </>
     )
   }
 }
