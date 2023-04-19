@@ -38,6 +38,14 @@ export  class Charts extends Component {
         <p className='btc-desc-p'>The total number of confirmed transactions per day.</p>
       </article>
       </Link>
+        <Link className="chart-link" to={`/charts/avg-block-size`}>
+      <article className='chart-link-container'>
+        <h2 className='chart-link-price-title' >Average Block Size (MB)</h2>
+        <span className='btc-to-dollar'>1.78</span>
+        <span className='btc-desc'>MB</span>
+        <p className='btc-desc-p'>The average block size over the past 24 hours in megabytes.</p>
+      </article>
+      </Link>
         </section>
      </section>
     </section>

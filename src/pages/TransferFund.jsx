@@ -93,7 +93,7 @@ export  class _TransferFund extends Component {
 
     
           </div>
-      <MovesList contact={contact} pastTransactions={pastTransactions}/>
+      <MovesList isHome={false} contact={contact} pastTransactions={pastTransactions}/>
         </section>
 
 

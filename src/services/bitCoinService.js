@@ -1,14 +1,17 @@
 import axios from "axios"
 import dataMarketPrice from '../assets/data/market-price.json' 
 import dataConfirmedTransactions from '../assets/data/n-transactions.json' 
+import dataAvgBlockSize from '../assets/data/avg-block-size.json' 
 
 const marketPrice = dataMarketPrice["market-price"]
 const confirmedTransactions =  dataConfirmedTransactions["n-transactions"]
+const avgBlockSize =  dataAvgBlockSize["avg-block-size"]
 
 export const bitCoinService={
     getRate,
     getMarketPrice,
-    getConfirmedTransactions
+    getConfirmedTransactions,
+    getAvgBlockSize,
 
 }
 async function getRate(){
@@ -22,7 +25,27 @@ async function getRate(){
 
 }
 }
-// getConfirmedTransactions()
+function getAvgBlockSize () {
+    const formatedData =[]
+    const options = {  year: 'numeric', month: 'short' };
+
+       marketPrice.forEach(value =>{
+       const dateTimeFormat3 = new Intl.DateTimeFormat('en-US', options)
+       const date1 = new Date(value.x);
+       const formatedTime= dateTimeFormat3.format(date1)
+
+        const newData=  {
+            name: formatedTime,
+            uv: value.y,
+            "avg-block-size": value.y,
+            amt: 2400,
+           }
+
+           formatedData.push(newData)
+       })
+  
+return formatedData
+}
 function  getConfirmedTransactions() {
     const formatedData =[]
     const options = {  year: 'numeric', month: 'short' };

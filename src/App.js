@@ -34,6 +34,7 @@ export default class App extends Component {
         <Route path="/contacts" component={ContactIndex} />
         <Route path="/charts/market-price" component={MarketPriceChart}/>
         <Route path="/charts/n-transactions" component={ConfirmedTransactions}/>
+        <Route path="/charts/avg-block-size" component={ConfirmedTransactions}/>
         <Route path="/charts" component={Charts}/>
         <Route path="/about" component={About} />
         <Route path="/signup-page" component={SignupPage} />

@@ -38,7 +38,7 @@ export  class _Home extends Component {
   render() {
     const { currBitCoinRate}= this.state
     
-    if(!this.props.loggdingUser)return(<div>Loaging...</div>)
+    if(!this.props.loggdingUser)return
 
     const { moves ,name ,coins} =this.props?.loggdingUser
 
@@ -66,7 +66,7 @@ export  class _Home extends Component {
           </header>
        {
         (moves.length === 0) ? <span className='no-transactions' > 'No Transactions made yet...' </span>:
-       <MovesList pastTransactions={nthMoves} contact={this.props?.loggdingUser}/>
+       <MovesList isHome={true} pastTransactions={nthMoves} contact={this.props?.loggdingUser}/>
        } 
           </section>
 

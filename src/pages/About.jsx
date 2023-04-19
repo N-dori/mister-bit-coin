@@ -21,10 +21,12 @@ const Vision = () => {
 
 export function About() {
     return (
+
+
         <section className="about flex">
             <section className="title-container">
-                <h2>About us and bit coins</h2>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nulla minus explicabo ipsum necessitatibus cupiditate facere corrupti, praesentium tempora molestias, accusantium repellendus, in quasi. Iste labore maxime, vitae nulla odit sint.</p>
+                <h1 className="title">Relentlessly building the future of finance since 2011</h1>
+                <p className="sub-title">The world’s leading crypto finance house serving people, projects, protocols and institutions since 2011.</p>
             </section>
 
             <nav>
@@ -37,5 +39,7 @@ export function About() {
                 <Route path="/about/vision" component={Vision} />
             </section>
         </section>
+        
+      
     )
 }

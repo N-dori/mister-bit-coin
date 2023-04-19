@@ -14,8 +14,10 @@ const user = null
 
 function getUser() {
     return new Promise((resolve) => {
-            const loggedinUser =storageService.load(STORAGE_KEY_LOGGEDIN_USER)
-           resolve(loggedinUser) 
+const loggedinUser =storageService.load(STORAGE_KEY_LOGGEDIN_USER)
+console.log('loggedinUser',loggedinUser);
+
+resolve(loggedinUser) 
         })
 
 

@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 
-export  function MovesList({pastTransactions, contact}) {
+export  function MovesList({pastTransactions, contact,isHome}) {
 
 
 
   return (
     <section className='moves-to-curr-contact'>
-    <h2>All transactions from you to {contact.name}</h2>
+    <h2>{(!isHome) ? 'All transactions from you to ' +contact.name :'Your last transactions '}</h2>
     <ol>
       {pastTransactions&& pastTransactions.map(transaction => 
         <li className="moves-transaction"  key={transaction._id}>
